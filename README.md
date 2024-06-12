@@ -1,12 +1,4 @@
-
-
-
-
-
-
-
-
-#HTML
+HTML
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +22,7 @@
 </html>
 
 
-#CSS
+CSS
 
 body {
     font-family: Arial, sans-serif;
