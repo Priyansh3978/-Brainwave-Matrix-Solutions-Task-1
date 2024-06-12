@@ -1,0 +1,35 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const taskInput = document.getElementById('new-task-input');
+    const addTaskButton = document.getElementById('add-task-button');
+    const taskList = document.getElementById('task-list');
+
+    addTaskButton.addEventListener('click', () => {
+        const taskText = taskInput.value.trim();
+        if (taskText) {
+            addTask(taskText);
+            taskInput.value = '';
+            taskInput.focus();
+        }
+    });
+
+    taskList.addEventListener('click', (e) => {
+        if (e.target.tagName === 'BUTTON') {
+            const taskItem = e.target.parentElement;
+            taskList.removeChild(taskItem);
+        } else if (e.target.tagName === 'LI') {
+            e.target.classList.toggle('completed');
+        }
+    });
+
+    function addTask(taskText) {
+        const taskItem = document.createElement('li');
+        taskItem.className = 'task-item';
+        taskItem.textContent = taskText;
+
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        taskItem.appendChild(deleteButton);
+
+        taskList.appendChild(taskItem);
+    }
+});
